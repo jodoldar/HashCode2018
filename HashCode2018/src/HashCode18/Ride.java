@@ -41,6 +41,14 @@ public class Ride implements Comparable<Ride>{
         return horiz + vert;
     }
     
+    public int distanceToMe(int x, int y){
+        int horiz, vert;
+        
+        horiz = Math.abs(this.IniX - x);
+        vert = Math.abs(this.IniY - y);
+        
+        return horiz + vert;
+    }
     public int getStartX(){
         return this.IniX;
     }

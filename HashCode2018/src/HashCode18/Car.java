@@ -13,9 +13,9 @@ import java.util.List;
  * @author josep
  */
 public class Car {
-    private Ride routeassigned;
-    private boolean isRouteAssigned;
-    private boolean inRoute;
+    public Ride routeassigned;
+    public boolean isRouteAssigned;
+    public boolean inRoute;
     private int posX;
     private int posY;
     List<Ride> carrerasHechas = new ArrayList<Ride>();
