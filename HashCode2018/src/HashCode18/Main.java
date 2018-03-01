@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author josep
+ * @author Josep Dols & Carlos Garcia
  */
 public class Main {
     
