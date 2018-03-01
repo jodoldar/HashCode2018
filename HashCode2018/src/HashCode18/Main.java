@@ -40,32 +40,38 @@ public class Main {
             N = in.nextInt(); //Rides
             B = in.nextInt(); //Bonus
             T1 = in.nextInt(); //Steps
-            
+            System.out.println(R +" " + C + " "+ F +" "+N + " "+B+" "+T1);
             cars = new Car[F];
             rides = new Ride[N]; 
             
             //Inicializacion de las rutas
             
-            for(int i=0; i<N-1; i++){
+            for(int i=0; i<N; i++){
                 rides[i] = new Ride(i,in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt());
                 in.nextLine();
+                System.out.println(rides[i].IniX + " " + rides[i].IniY);
             } 
             
             //Inicizalizacion de los coches 
             
-            for(int i =0; i< F -1 ; i++){
+            for(int i =0; i< F ; i++){
                 cars[i] = new Car(); 
             }
             
             Arrays.sort(rides);
             List<Ride> sortedRides = new ArrayList<Ride>(Arrays.asList(rides));
-            for(int j = 0; j<T1; j++){
-                T = j;
+            System.out.println(sortedRides.size());
+            for(int j = 0; j<T1-1; j++){
+                T = j+1;
                 
                 for(int c=0; c<F;c++){
                     if(!cars[c].isRouteAssigned()){
-                        cars[c].setRouteassigned(sortedRides.get(0));
-                        sortedRides.remove(0);
+                        if(!sortedRides.isEmpty()){
+                            cars[c].setRouteassigned(sortedRides.get(0));
+                            System.out.println("Le asigno la ruta al coche " + c);
+                            System.out.println("Estado: " + cars[c].isRouteAssigned());
+                            sortedRides.remove(0);
+                        }
                     }
                     
                     if(cars[c].isRouteAssigned()){
@@ -81,12 +87,14 @@ public class Main {
             
             for (int i=0; i<F; i++){
                 Car aux = cars[i];
+                System.out.println("Al final, coche " + i + ". " + aux.carrerasHechas.size());
                 out.print(aux.carrerasHechas.size());
                 for (int j=0; j<aux.carrerasHechas.size(); j++){
                     out.print(" " + aux.carrerasHechas.get(j).id);
                 }
                 out.println();
             }
+            out.close();
         }
 
 
