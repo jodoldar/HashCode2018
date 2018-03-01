@@ -24,6 +24,8 @@ public class Main {
         }else{
             File f = new File(args[0]);
             Scanner in = new Scanner(f);
+            Car [] cars;
+            Ride [] rides;
             int F,N,B;
             int grid [][];
             R = in.nextInt(); 
@@ -34,7 +36,21 @@ public class Main {
             B = in.nextInt(); //Bonus
             T = in.nextInt(); //Steps
             
+            cars = new Car[F];
+            rides = new Ride[N]; 
             
+            //Inicializacion de las rutas
+            
+            for(int i=0; i<N-1; i++){
+                rides[i] = new Ride(i,in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt());
+                in.nextLine();
+            } 
+            
+            //Inicizalizacion de los coches 
+            
+            for(int i =0; i< F -1 ; i++){
+                cars[i] = new Car(); 
+            }
         }
 
 
