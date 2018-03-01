@@ -6,6 +6,10 @@
 package HashCode18;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,6 +21,7 @@ public class Main {
     public static int R,C,T; 
     
     public static void main(String[] args) throws FileNotFoundException{
+        int T1;
         System.out.println("HashCode2018");
         if(args.length!=1){
             System.err.println("Numero de argumentos incorrecto");
@@ -34,7 +39,7 @@ public class Main {
             F = in.nextInt(); //Cars 
             N = in.nextInt(); //Rides
             B = in.nextInt(); //Bonus
-            T = in.nextInt(); //Steps
+            T1 = in.nextInt(); //Steps
             
             cars = new Car[F];
             rides = new Ride[N]; 
@@ -50,6 +55,37 @@ public class Main {
             
             for(int i =0; i< F -1 ; i++){
                 cars[i] = new Car(); 
+            }
+            
+            Arrays.sort(rides);
+            List<Ride> sortedRides = new ArrayList<Ride>(Arrays.asList(rides));
+            for(int j = 0; j<T1; j++){
+                T = j;
+                
+                for(int c=0; c<F;c++){
+                    if(!cars[c].isRouteAssigned()){
+                        cars[c].setRouteassigned(sortedRides.get(0));
+                        sortedRides.remove(0);
+                    }
+                    
+                    if(cars[c].isRouteAssigned()){
+                        cars[c].move();
+                    }
+                }
+                
+            }
+            
+            
+            File outF = new File(args[0] + ".out");
+            PrintWriter out = new PrintWriter(outF);
+            
+            for (int i=0; i<F; i++){
+                Car aux = cars[i];
+                out.print(aux.carrerasHechas.size());
+                for (int j=0; j<aux.carrerasHechas.size(); j++){
+                    out.print(" " + aux.carrerasHechas.get(j).id);
+                }
+                out.println();
             }
         }
 
