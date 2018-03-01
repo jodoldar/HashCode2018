@@ -20,6 +20,14 @@ public class Car {
     private int posY;
     List<Ride> carrerasHechas = new ArrayList<Ride>();
     
+    public Car(){
+        this.posX = 0;
+        this.posY = 0;
+        routeassigned = null;
+        isRouteAssigned = false;
+        inRoute = false;
+    }
+    
     public void goLeft(){
             this.posX--;
     }
@@ -41,6 +49,18 @@ public class Car {
                     // Me puedo mover
                     if (this.posX == routeassigned.getEndX()){
                         // Voy a la vertical
+                        if (this.posY == routeassigned.getEndY()){
+                            carrerasHechas.add(routeassigned);
+                            setRouteAssigned(false);
+                            inRoute = false;
+                            routeassigned = null;
+                        }else{
+                            if (this.posY > routeassigned.getEndY()){
+                                goDown();
+                            }else{
+                                goUp();
+                            }
+                        }
                     }else{
                         // Voy a la horizontal
                         if (this.posX > routeassigned.getEndX()){
@@ -54,6 +74,23 @@ public class Car {
                 }
             }else{
                 // Tengo que ir al inicio
+                if (this.posX == routeassigned.getStartX()){
+                    if (this.posY == routeassigned.getStartY()){
+                        inRoute = true;
+                    }else{
+                        if (this.posY > routeassigned.getStartY()){
+                            goDown();
+                        }else{
+                            goUp();
+                        }
+                    }
+                }else{
+                    if(this.posX > routeassigned.getStartX()){
+                        goLeft();
+                    }else{
+                        goRight();
+                    }
+                }
             }
         }
     }
