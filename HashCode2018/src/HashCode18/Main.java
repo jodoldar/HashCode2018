@@ -68,7 +68,7 @@ public class Main {
                     if(!cars[c].isRouteAssigned()){
                         if(!sortedRides.isEmpty()){
                             cars[c].setRouteassigned(sortedRides.get(0));
-                            System.out.println("Le asigno la ruta al coche " + c);
+                            //System.out.println("Le asigno la ruta al coche " + c);
                             System.out.println("Estado: " + cars[c].isRouteAssigned());
                             sortedRides.remove(0);
                         }

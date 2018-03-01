@@ -42,7 +42,7 @@ public class Car {
     }
     
     public void move(){
-        System.out.println("Soy el coche x y estoy en la pos " + this.posX + "," + this.posY);
+        //System.out.println("Soy el coche x y estoy en la pos " + this.posX + "," + this.posY);
         if (isRouteAssigned){
             if (inRoute){
                 // Ya estoy en la ruta
