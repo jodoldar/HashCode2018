@@ -13,19 +13,27 @@ import java.util.Scanner;
  * @author josep
  */
 public class Main {
+    
+    public static int R,C,T; 
+    
     public static void main(String[] args) throws FileNotFoundException{
-        
-        System.out.println("HashCode2017");
+        System.out.println("HashCode2018");
         if(args.length!=1){
             System.err.println("Numero de argumentos incorrecto");
             System.exit(1);
         }else{
             File f = new File(args[0]);
             Scanner in = new Scanner(f);
-            int R,C;
-            R = in.nextInt();
+            int F,N,B;
+            int grid [][];
+            R = in.nextInt(); 
             C = in.nextInt(); 
-            int grid [] [] = new int [R] [C]; 
+            grid = new int [R] [C]; //Ciudad 
+            F = in.nextInt(); //Cars 
+            N = in.nextInt(); //Rides
+            B = in.nextInt(); //Bonus
+            T = in.nextInt(); //Steps
+            
             
         }
 
