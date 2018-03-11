@@ -7,7 +7,7 @@ package HashCode18;
 
 /**
  *
- * @author josep
+ * @author Josep Dols & Carlos Garcia
  */
 public class Ride implements Comparable<Ride>{
     int IniX;

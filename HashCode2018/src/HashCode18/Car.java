@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author josep
+ * @author Josep Dols & Carlos Garcia
  */
 public class Car {
     public Ride routeassigned;
